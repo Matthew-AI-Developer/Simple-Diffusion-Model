@@ -1,0 +1,101 @@
+# Simple Diffusion Model  
+A minimal and modular implementation of a generative diffusion model for image synthesis.
+
+---
+
+## About The Project  
+This project implements a fully modular diffusion model from scratch using PyTorch.  
+The goal is to generate new, high-quality images by progressively denoising random noise — a simplified version of the process used in Stable Diffusion.  
+
+It includes all essential components:
+- Configurable hyperparameters (config.py)
+- Noise scheduling system (noise_scheduler.py)
+- UNet-based noise predictor (unet.py)
+- Sampling pipeline (sampler.py)
+- Utility functions for dataset loading and saving (utils.py)
+- Training loop (main.py)
+
+The code is clean, educational, and designed to help understand the core mechanics of generative diffusion models.
+
+---
+
+## Technologies Used
+- Python 3.13+
+- PyTorch
+- Torchvision
+- Matplotlib
+- Dataclasses
+
+---
+
+## Project Structure
+
+```
+simple_diffusion/
+│
+├── config.py             # Configuration class (hyperparameters, paths, etc.)
+├── noise_scheduler.py    # Beta scheduling and noise functions
+├── unet.py               # Core UNet architecture
+├── sampler.py            # Sampling / denoising process
+├── utils.py              # Data loading, saving, and image utilities
+└── main.py               # Main training and sampling loop
+```
+
+---
+
+## How to Run
+
+### 1. Install Dependencies
+```bash
+pip install torch torchvision matplotlib
+```
+
+### 2. Prepare Dataset
+Place your image dataset in the directory specified in `config.py`, for example:
+```
+data_path = '/home/wizard/python/256/'
+```
+
+Each subfolder should represent a class (standard ImageFolder format).
+
+### 3. Run Training
+```bash
+python main.py
+```
+
+Training progress, sample generations, and model checkpoints will be saved automatically.
+
+---
+
+## Output
+- Generated samples are saved every few epochs under the `samples/` folder.
+- The trained model weights are stored as `face_diffusion_model.pth`.
+
+---
+
+## Key Features
+- Modular design (easy to extend and modify)  
+- Simple and readable PyTorch implementation  
+- Implements linear beta noise scheduling  
+- Generates realistic synthetic images  
+- Perfect for learning and showcasing diffusion concepts  
+
+---
+
+## Created By
+**Matthew**  
+Python Developer & AI Enthusiast  
+Passionate about deep learning, generative models, and elegant code.
+
+---
+
+## Future Improvements
+- Add cosine or exponential beta scheduling  
+- Integrate EMA model updates  
+- Support larger image resolutions  
+- Implement classifier-free guidance  
+- Add wandb or tensorboard logging  
+
+---
+
+# Created by Matthew :)
